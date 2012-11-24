@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+one:
+  imagem: MyString
+  resposta: MyString
+  nota: 1
+
+two:
+  imagem: MyString
+  resposta: MyString
+  nota: 1

@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Imagem:</b><br/>
+  <img src="<%= @questao.imagem %>"/>
+</p>
+
+<p>
+  <b>Resposta:</b>
+  <%= @questao.resposta %>
+</p>
+
+<p>
+  <b>Nota:</b>
+  <%= @questao.nota %>
+</p>
+
+
+<%= link_to 'Alterar', edit_questao_path(@questao) %> |
+<%= link_to 'Voltar', questoes_path %>

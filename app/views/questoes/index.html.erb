@@ -1,0 +1,26 @@
+<h1>Lista de questoes</h1>
+
+<table>
+  <tr>
+    <th>Resposta</th>
+    <th>Nota</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @questoes.each do |questao| %>
+  <tr>
+    <td><%= questao.resposta %></td>
+    <td><%= questao.nota %></td>
+    <td><%= link_to 'Exibir', questao %></td>
+    <td><%= link_to 'Alterar', edit_questao_path(questao) %></td>
+    <td><%= link_to 'Excluir', questao, confirm: 'Tem certeza?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'Criar Questao', new_questao_path %><br />
+<%= link_to 'Iniciar Gincana', iniciar_path %>

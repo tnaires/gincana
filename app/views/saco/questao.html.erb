@@ -1,0 +1,8 @@
+<%= form_for @questao, :method => :post, :url => proxima_path do |f| %>
+  <%= f.hidden_field :id %>
+  <h3>Qual o nome do personagem abaixo?</h3>
+  <img src="<%= @questao.imagem %>"/><br />
+  <%= f.text_field :tentativa %><br />
+  <%= f.submit "Proxima" %>
+<% end %>
+  
