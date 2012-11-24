@@ -7,11 +7,7 @@ class Questao < ActiveRecord::Base
   end
   
   def self.proxima
-    Questao.all.each do |questao|
-      return questao if questao.tentativa.empty?
-    end
-    
-    nil
+    Questao.all.find {|questao| questao.tentativa.empty?}
   end
   
   def self.pontuacao
@@ -19,10 +15,10 @@ class Questao < ActiveRecord::Base
   end
   
   def self.total
-    Questao.all.inject(0) {|soma, questao| soma + questao.nota}
+    Questao.all.map {|questao| questao.nota}.inject(:+)
   end
   
   def self.percentual
-    (Questao.pontuacao / Questao.total) * 100
+    (Questao.pontuacao.to_f / Questao.total) * 100
   end
 end
