@@ -11,11 +11,11 @@ class Questao < ActiveRecord::Base
   end
   
   def self.pontuacao
-    Questao.all.inject(0) {|soma, questao| soma + (questao.tentativa.downcase == questao.resposta.downcase ? questao.nota : 0)}
+    Questao.all.select {|questao| questao.tentativa.downcase == questao.resposta.downcase}.map(&:nota).reduce(:+)
   end
   
   def self.total
-    Questao.all.map {|questao| questao.nota}.inject(:+)
+    Questao.all.map(&:nota).reduce(:+)
   end
   
   def self.percentual
